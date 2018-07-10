@@ -5,73 +5,31 @@ interface LoggerBackend {
     /**
      * Verbose level object
      */
-    fun v(msg: Any?)
-
-    /**
-     * Verbose level message
-     */
-    fun v(msg: String)
-
-    /**
-     * Verbose level error
-     */
-    fun v(error: Throwable, msg: String? = null)
-
+    fun v(msg: Any? = null, tag: String? = null, error: Throwable? = null)
 
     /**
      * Debug level object
      */
-    fun d(msg: Any?)
+    fun d(msg: Any? = null, tag: String? = null, error: Throwable? = null)
 
     /**
-     * Debug level message
+     * Info level object; This level is used for meaningful information like analytics objects or objects,
+     * which are going to be redirected or filtered
      */
-    fun d(msg: String)
-
-    /**
-     * Debug level error
-     */
-    fun d(error: Throwable, msg: String? = null)
-
-    /**
-     * Information level object; for more information @see {@link #d()}
-     *
-     * This level is usually used for logging information for
-     */
-    fun i(msg: Any?)
+    fun i(msg: Any? = null, tag: String? = null, error: Throwable? = null)
 
     /**
      * Warning level object
      */
-    fun w(msg: Any?)
+    fun w(msg: Any? = null, tag: String? = null, error: Throwable? = null)
 
     /**
-     * Warning level message
+     * Warning level object
      */
-    fun w(msg: String)
-
-    /**
-     * Warning level error
-     */
-    fun w(error: Throwable, msg: String? = null)
-
-    /**
-     * Error level object
-     */
-    fun e(msg: Any?)
-
-    /**
-     * Error level message
-     */
-    fun e(msg: String)
-
-    /**
-     * Fatal error
-     */
-    fun e(error: Throwable, msg: String? = null)
+    fun e(msg: Any? = null, tag: String? = null, error: Throwable? = null)
 
     /**
      * Temporary message, which is used only for now. These logs should be removed before commits.
      */
-    fun tmp(msg: String)
+    fun tmp(msg: Any? = null, tag: String? = null, error: Throwable? = null)
 }

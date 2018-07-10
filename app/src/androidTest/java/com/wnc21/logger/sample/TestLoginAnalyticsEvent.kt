@@ -17,7 +17,7 @@ class TestLoginAnalyticsEvent {
     fun shouldLogLoginSuccessEvent() {
         val logger = object: LoggingBackendAdapter() {
             var event: Any? = null
-            override fun i(msg: Any?) {
+            override fun i(msg: Any?, tag: String?, error: Throwable?) {
                 event = msg
             }
         }
@@ -32,7 +32,7 @@ class TestLoginAnalyticsEvent {
     fun shouldSendAnalyticsEvent() {
         val logger = object: LoggingBackendAdapter() {
             var event: Any? = null
-            override fun i(msg: Any?) {
+            override fun i(msg: Any?, tag: String?, error: Throwable?) {
                 event = msg
             }
         }
