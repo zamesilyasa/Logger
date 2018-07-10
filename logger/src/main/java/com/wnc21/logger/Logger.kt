@@ -1,34 +1,17 @@
 package com.wnc21.logger
 
-object Logger: LoggerBackend {
-
+object Logger : LoggerBackend {
     var backend: LoggerBackend = LoggingBackendAdapter()
 
-    override fun v(msg: Any?) = backend.d(msg)
+    override fun v(msg: Any?, tag: String?, error: Throwable?) =backend.v(msg, tag, error)
 
-    override fun v(msg: String) = backend.d(msg)
+    override fun d(msg: Any?, tag: String?, error: Throwable?) = backend.d(msg, tag, error)
 
-    override fun v(error: Throwable, msg: String?) = backend.d(error, msg)
+    override fun i(msg: Any?, tag: String?, error: Throwable?) = backend.i(msg, tag, error)
 
-    override fun d(msg: Any?) = backend.d(msg)
+    override fun w(msg: Any?, tag: String?, error: Throwable?) = backend.w(msg, tag, error)
 
-    override fun d(msg: String) = backend.d(msg)
+    override fun e(msg: Any?, tag: String?, error: Throwable?) = backend.e(msg, tag, error)
 
-    override fun d(error: Throwable, msg: String?) = backend.d(error, msg)
-
-    override fun i(msg: Any?) = backend.i(msg)
-
-    override fun w(msg: Any?) = backend.w(msg)
-
-    override fun w(msg: String) = backend.w(msg)
-
-    override fun w(error: Throwable, msg: String?) = backend.w(error, msg)
-
-    override fun e(msg: Any?) = backend.e(msg)
-
-    override fun e(msg: String) = backend.e(msg)
-
-    override fun e(error: Throwable, msg: String?) = backend.e(error, msg)
-
-    override fun tmp(msg: String) = backend.tmp(msg)
+    override fun tmp(msg: Any?, tag: String?, error: Throwable?) = backend.tmp(msg, tag, error)
 }

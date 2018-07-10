@@ -4,11 +4,13 @@ import android.app.Activity
 import com.google.android.gms.analytics.GoogleAnalytics
 import com.wnc21.logger.LoggerBackend
 
-class GoogleAnalyticsBackend(private val analytics: GoogleAnalytics, loggerBackend: LoggerBackend) : LoggerBackend by loggerBackend {
+class GoogleAnalyticsBackend(private val analytics: GoogleAnalytics, private val loggerBackend: LoggerBackend) : LoggerBackend by loggerBackend {
 
-    override fun i(msg: Any?) {
+    override fun i(msg: Any?, tag: String?, error: Throwable?) {
         if (msg != null && msg is LogActivityMessageStart) {
             msg.log(analytics)
+        } else {
+            loggerBackend.i(msg, tag, error)
         }
     }
 }
