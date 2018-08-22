@@ -15,7 +15,7 @@ class Application: android.app.Application() {
         instance = this
 
         if (BuildConfig.DEBUG) {
-            Logger.backend = AndroidBackend()
+            Logger.backend = GoogleAnalyticsBackend(GoogleAnalytics.getInstance(this), AndroidBackend())
         } else {
             Logger.backend = ApiLogger(GoogleAnalyticsBackend(GoogleAnalytics.getInstance(this), FabricBackend(EmptyBackend())))
         }

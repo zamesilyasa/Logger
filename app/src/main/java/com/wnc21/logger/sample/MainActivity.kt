@@ -17,4 +17,3 @@ class MainActivity : Activity() {
 }
 
 fun Logger.sayHello(msg: String) = Toast.makeText(Application.instance, msg, Toast.LENGTH_SHORT).show()
-
